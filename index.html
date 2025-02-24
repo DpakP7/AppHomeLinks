@@ -1,0 +1,88 @@
+import React from 'react';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+
+const WebsiteDirectory = () => {
+  const sections = {
+    'Educational Websites': {
+      color: 'bg-blue-500',
+      sites: [
+        { name: 'Swayam', url: 'https://theinnerdetail.com/8-useful-websites-specially-made-for-students-by-indian-government/' },
+        { name: 'Swayam Prabha', url: 'https://theinnerdetail.com/8-useful-websites-specially-made-for-students-by-indian-government/' },
+        { name: 'NDLI', url: 'https://ndl.iitkgp.ac.in/' },
+        { name: 'Jagranjosh', url: 'https://www.edsys.in/40-free-educational-websites-you-shouldnt-miss/' },
+        { name: 'Shiksha', url: 'https://www.edsys.in/40-free-educational-websites-you-shouldnt-miss/' },
+        { name: 'Aglasem', url: 'https://www.edsys.in/40-free-educational-websites-you-shouldnt-miss/' },
+        { name: 'Caclubindia', url: 'https://www.edsys.in/40-free-educational-websites-you-shouldnt-miss/' },
+        { name: 'Meritnation', url: 'https://www.edsys.in/40-free-educational-websites-you-shouldnt-miss/' },
+        { name: 'Khan Academy', url: 'https://www.khanacademy.org/' }
+      ]
+    },
+    'Online Gaming Websites': {
+      color: 'bg-purple-500',
+      sites: [
+        { name: 'Poki', url: 'https://poki.com/' },
+        { name: 'CrazyGames', url: 'https://rigorousthemes.com/blog/best-poki-alternatives/' },
+        { name: 'Gameforge', url: 'https://rigorousthemes.com/blog/best-poki-alternatives/' },
+        { name: 'Y8 Games', url: 'https://www.similarsitesearch.com/sites/poki/' },
+        { name: 'Kizi', url: 'https://www.similarsitesearch.com/sites/poki/' },
+        { name: 'Friv', url: 'https://www.similarsitesearch.com/sites/poki/' },
+        { name: 'Miniclip', url: 'https://www.similarsitesearch.com/sites/poki/' },
+        { name: 'Addicting Games', url: 'https://www.similarsitesearch.com/sites/poki/' },
+        { name: 'Arcadeprehacks', url: 'https://www.similarsitesearch.com/sites/poki/' },
+        { name: 'Armor Games', url: 'https://www.similarsitesearch.com/sites/poki/' },
+        { name: 'Kongregate', url: 'https://www.similarsitesearch.com/sites/poki/' }
+      ]
+    },
+    'Popular Websites': {
+      color: 'bg-green-500',
+      sites: [
+        { name: 'YouTube', url: 'https://www.youtube.com/' },
+        { name: 'Wikipedia', url: 'https://www.wikipedia.org/' },
+        { name: 'Google', url: 'https://www.google.com/' },
+        { name: 'Reddit', url: 'https://www.reddit.com/' },
+        { name: 'TED', url: 'https://www.ted.com/' }
+      ]
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 p-8">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">
+          Website Directory
+        </h1>
+        
+        <div className="grid gap-8">
+          {Object.entries(sections).map(([sectionTitle, { color, sites }]) => (
+            <Card key={sectionTitle} className="overflow-hidden">
+              <CardHeader className={`${color} text-white`}>
+                <CardTitle className="text-2xl font-semibold">{sectionTitle}</CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {sites.map((site) => (
+                    <a
+                      key={site.name}
+                      href={site.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transform transition-all duration-200 hover:scale-105"
+                    >
+                      <div className={`bg-white rounded-lg shadow-md hover:shadow-xl p-4 text-center border-2 hover:border-${color.split('-')[1]}-500`}>
+                        <p className="text-lg font-medium text-gray-800 hover:text-blue-600 truncate">
+                          {site.name}
+                        </p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default WebsiteDirectory;
